@@ -28,9 +28,9 @@ router.get('/list', function(req, res, next) {
         return;
       }
       
-      var finalResults = [];
+      var finalResult = [];
       results.map((val, idx) => {
-        finalResults = [...finalResults, val.value];
+        finalResult = [...finalResult, val.value];
       });
 
       conn.release();
@@ -38,7 +38,7 @@ router.get('/list', function(req, res, next) {
       res.send({ 
         isSuccess: true,
         errMsg: '',
-        data: finalResults
+        memos: finalResult
       });
     });
   });
@@ -77,7 +77,7 @@ router.post('/new-memo', function(req, res, next) {
       res.send({ 
         isSuccess: true,
         errMsg: '',
-        data: req.body.newMemo
+        newMemo: req.body.newMemo
       });
     });
   });
