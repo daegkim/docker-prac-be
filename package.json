@@ -5,7 +5,7 @@
   "scripts": {
     "start": "NODE_ENV=production node ./bin/www",
     "start-dev": "npm run swagger-binding & NODE_ENV=development nodemon ./bin/www",
-    "swagger-binding": "swagger-cli bundle ./swagger/openapi.yaml --outfile ./swagger/build/swagger.yaml --type yaml Created swagger/build/swagger.yaml from ./swagger/openapi.yaml"
+    "swagger-binding": "swagger-cli bundle ./swagger/openApi.yaml --outfile ./swagger/build/swagger.yaml --type yaml Created swagger/build/swagger.yaml from ./swagger/openApi.yaml"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
