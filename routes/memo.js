@@ -5,8 +5,6 @@ var dbManager = require('../database/manager');
 router.get('/list', function(req, res, next) {
   dbManager.pool.getConnection((err, conn) => {
     if(err) {
-      conn.release();
-
       res.send({
         isSuccess: false,
         errMsg: err
