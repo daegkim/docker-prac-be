@@ -3,7 +3,7 @@ WORKDIR /usr/app
 COPY ./package*.json ./
 RUN npm install
 COPY ./ ./
-CMD ["npm", "run", "start-dev"]
+CMD ["npm", "run", "start"]
 
 # RUN과 CMD 차이점
 # RUN : 명령어는 이미지를 빌드하는 순간에 실행. 라이브러리 설치 용도

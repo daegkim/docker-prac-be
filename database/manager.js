@@ -12,10 +12,19 @@ class Manager {
         case "development":
           this.pool = mysql.createPool(config.dev);
           break;
-        default:
+        case "production":
+          this.pool = mysql.createPool(config.production);
           break;
       }
-      console.log("create pool");
+      //정상적으로 연결 되었는지 확인한다.
+      this.pool.getConnection((err, conn) => {
+        if(err) {
+          console.log(err.message);
+          return;
+        }
+        console.log('create pool and ready to get connection');
+        conn.release();
+      });
     }
     catch(err) {
       console.log(err);

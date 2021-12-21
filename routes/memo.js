@@ -47,9 +47,7 @@ router.post('/new-memo', function(req, res, next) {
 
   dbManager.pool.getConnection((err, conn) => {
     if(err) {
-      conn.release();
-
-      res.status(400).send({
+      res.send({
         isSuccess: false,
         errMsg: err
       });
@@ -63,7 +61,7 @@ router.post('/new-memo', function(req, res, next) {
       if(err) {
         conn.release();
 
-        res.status(400).send({
+        res.send({
           isSuccess: false,
           errMsg: err
         });
