@@ -4,6 +4,10 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 
+var YAML = require('yamljs');
+var swaggerUi = require('swagger-ui-express');
+var swaggerJsdoc = require('swagger-jsdoc');
+
 var memoRouter = require('./routes/memo');
 
 var app = express();
@@ -15,6 +19,8 @@ app.use(cookieParser());
 app.use(cors());
 
 app.use('/memo', memoRouter);
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(YAML.load('./swagger/build/swagger.yaml')));
 
 app.use(function(req, res, next) {
   next(createError(404));

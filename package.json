@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "NODE_ENV=production node ./bin/www",
-    "start-dev": "NODE_ENV=development nodemon ./bin/www"
+    "start-dev": "npm run swagger-binding & NODE_ENV=development nodemon ./bin/www",
+    "swagger-binding": "swagger-cli bundle ./swagger/openapi.yaml --outfile ./swagger/build/swagger.yaml --type yaml Created swagger/build/swagger.yaml from ./swagger/openapi.yaml"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -14,9 +15,13 @@
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "yamljs": "^0.3.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "swagger-cli": "^4.0.4",
+    "swagger-jsdoc": "^6.1.0",
+    "swagger-ui-express": "^4.3.0"
   }
 }

@@ -1,0 +1,52 @@
+/memo/list:
+  get:
+    responses:
+      200:
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                isSuccess:
+                  type: boolean
+                errMsg:
+                  type: string
+                data:
+                  type: array
+                  items:
+                    type: string
+/memo/new-memo:
+  post:
+    summary: add a new memo
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: string
+    responses:
+      200:
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                isSuccess:
+                  type: boolean
+                errMsg:
+                  type: string
+                newMemo:
+                  type: string
+      400:
+        description: NG
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                isSuccess:
+                  type: boolean
+                errMsg:
+                  type: string
