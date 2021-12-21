@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors());
 
-app.use('/memo', memoRouter);
+app.use('/api/memo', memoRouter);
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(YAML.load('./swagger/build/swagger.yaml')));
 
