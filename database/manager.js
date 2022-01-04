@@ -13,7 +13,14 @@ class Manager {
           this.pool = mysql.createPool(config.dev);
           break;
         case "production":
-          this.pool = mysql.createPool(config.production);
+          this.pool = mysql.createPool({
+            connectionLimit: 10,
+            host: process.env.MYSQL_HOST,
+            user: process.env.MYSQL_USER,
+            password: process.env.MYSQL_ROOT_PASSWORD,
+            database: process.env.MYSQL_DATABASE,
+            port: process.env.MYSQL_PORT
+          });
           break;
       }
       //정상적으로 연결 되었는지 확인한다.
